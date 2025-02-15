@@ -1,15 +1,26 @@
-/*===== MENU SHOW =====*/ 
+/*===== MENU SHOW & HIDE =====*/ 
 const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId),
           nav = document.getElementById(navId);
 
     if (toggle && nav) {
         toggle.addEventListener('click', () => {
+            // Toggle 'show' class for the menu
             nav.classList.toggle('show');
+
+            // Toggle active class for animation
+            toggle.classList.toggle("active");
+
+            // Toggle between menu and close icons
+            const icon = toggle.querySelector("i");
+            icon.classList.toggle("bx-menu");
+            icon.classList.toggle("bx-x");
         });
     }
 };
+
 showMenu('nav-toggle', 'nav-menu');
+  
 
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link');
