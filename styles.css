@@ -761,8 +761,9 @@ img {
   font-size: 1.7rem;
   font-weight: bold;
   background: linear-gradient(90deg, #FACC15, #FDE047);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text; /* Standard property */
+  -webkit-background-clip: text; /* For WebKit browsers */
+  -webkit-text-fill-color: transparent; /* Ensures text transparency */
 }
 
 /* Footer Message */
