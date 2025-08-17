@@ -79,6 +79,18 @@ img {
   display: block;
 }
 
+/* Add spacing between sections in mobile view */
+@media (max-width: 768px) {
+  section {
+    margin-bottom: -50px; /* 50px gap between sections */
+  }
+
+  /* Optional: remove last section's bottom margin */
+  section:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
 /*===== SECTION STYLES =====*/
 .section-title {
   position: relative;
@@ -296,7 +308,6 @@ img {
 }
 
 /*===== HOME SECTION =====*/
-/* HOME SECTION - Make it visually appealing */
 .home {
   width: 100vw;
   max-width: 100%;
@@ -304,44 +315,40 @@ img {
   justify-content: center;
   position: relative;
   background: #060809;
-  overflow: hidden; /* To prevent unwanted overflow */
+  overflow: hidden; /* Prevent unwanted overflow */
   margin-top: -25px;
-}
-.home {
-  min-height: 105vh; /* Full viewport height */
-  display: flex;
-  align-items: center; /* Centers content vertically */
+  min-height: 105vh;
+  align-items: center;
   justify-content: center;
-  padding: 10rem 0; /* Increased padding for more height */
+  padding: 8rem 1.5rem; /* smaller padding for better mobile scaling */
 }
 
-/* Centered Container */
 .home__container {
-  width: 80%;
+  width: 90%;
   max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 3rem;
 }
 
-/* --- TYPOGRAPHY STYLES --- */
-
+/* --- TYPOGRAPHY --- */
 .home__title {
   font-size: 5.3rem;
   font-weight: bold;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   color: #ffffff;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 .home__title-color {
-  color: #9dd4fc; /* Light cyan pop color */
+  color: #9dd4fc;
   font-size: 4.5rem;
-  font-family: 'Roboto';
-  line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.3;
 }
 
-/* BUTTON STYLES */
+/* Buttons */
 .contact__button {
   display: inline-block;
   margin-top: 50px;
@@ -353,82 +360,43 @@ img {
   border-radius: 30px;
   transition: 0.3s ease-in-out;
 }
-
 .contact__button:hover {
   background: #00B8D4;
   transform: scale(1.05);
 }
 
-/* SOCIAL ICONS */
+/* Social Icons */
 .home__social {
   display: flex;
   margin-top: 50px;
+  gap: 25px;
 }
-
-/* Icon Styling */
 .home__social-icon {
   width: 55px;
   height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.15); /* Soft background */
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   color: white;
   font-size: 1.8rem;
-  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   text-decoration: none;
-  position: relative;
-  overflow: hidden;
 }
-
-/* Hover Effect - Smooth Lift Up */
 .home__social-icon:hover {
-  background: white; /* White background on hover */
-  color: #1E3A8A; /* Primary theme color */
-  transform: translateY(-5px); /* Moves the icon up smoothly */
+  background: white;
+  color: #1E3A8A;
+  transform: translateY(-5px);
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-  .home__social {
-    display: flex; 
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically (if needed) */
-    gap: 35px; /* Adjust spacing for smaller screens */
-    width: 100%; /* Ensure it spans full width */
-    margin-top: 70px; /* Add spacing if required */
-  }
-
-  .home__social-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 1.6rem;
-  }
-}
-
-/* Updated Background - Soft Gradient */
-.home {
-  background: #060809
-}
-
-@keyframes swing {
-  0%   { transform: rotate(0deg); }
-  25%  { transform: rotate(10deg); }
-  50%  { transform: rotate(0deg); }
-  75%  { transform: rotate(-10deg); }
-  100% { transform: rotate(0deg); }
-}
-
-/* Image with Elegant Shadow */
+/* Image Tilt Effect */
 .home__image {
   position: relative;
   display: inline-block;
   margin-top: -40px;
-  transform: rotate(-4deg); /* Slight left tilt */
+  transform: rotate(-4deg);
 }
-
-/* Add a tilted rectangle behind the image */
 .home__image::before {
   content: '';
   position: absolute;
@@ -436,35 +404,40 @@ img {
   left: 10px;
   width: 380px;
   height: 480px;
-  background-color: rgba(255, 255, 255, 50%); /* Subtle white layer */
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
-  transform: rotate(15deg); /* Slight left tilt */
+  transform: rotate(15deg);
   z-index: 0;
 }
-
-/* Tilt the actual image slightly to the left */
 .home__image img {
   position: relative;
   width: 380px;
   height: 480px;
   border: 4px solid #ffffff;
-  transform: rotate(-4deg); /* Slight left tilt */
+  transform: rotate(-4deg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   z-index: 1;
 }
 
+/* Hi Swing Image */
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
 .home__hi {
   position: absolute;
   bottom: -20px;
-  left: -280px;   /* Space from left side of about.png */
+  left: -280px;
   width: 200px;
   height: 200px;
   z-index: 2;
   animation: swing 2s ease-in-out infinite;
-  transform-origin: top center; /* ensures it swings from the bottom */
+  transform-origin: top center;
 }
-
 .home__hi img {
   width: 100%;
   height: auto;
@@ -472,35 +445,80 @@ img {
   border: none;
 }
 
+/* ===== RESPONSIVENESS ===== */
 
-/* MEDIA QUERIES FOR RESPONSIVENESS */
-@media screen and (max-width: 768px) {
+/* Tablets */
+@media screen and (max-width: 992px) {
   .home__container {
-      flex-direction: column;
-      text-align: center;
-      margin-top:-80px;
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+    margin-top: 50px;
+  }
+
+  .home__title {
+    font-size: 3.5rem;
+  }
+
+  .home__title-color {
+    font-size: 3rem;
   }
 
   .home__image img {
-      width: 400px;
-      height: 400px;
-      margin-top: 80px;
+    width: 320px;
+    height: 400px;
+  }
+  .home__image::before {
+    width: 320px;
+    height: 400px;
   }
 }
 
-/*BUTTONS*/
-.button {
-  display: inline-block;
-  background: linear-gradient(135deg, #ff7eb3, #ff758c);
-  color: #fff;
-  padding: 0.75rem 2.5rem;
-  font-weight: var(--font-semi);
-  border-radius: 0.75rem;
-  transition: 0.3s;
-}
-.button:hover {
-  box-shadow: 0px 10px 36px rgba(255, 117, 140, 0.3);
-  transform: translateY(-2px);
+/* Mobile */
+@media screen and (max-width: 576px) {
+  .home {
+    padding: 6rem 1rem;
+    min-height: auto;
+  }
+
+  .home__title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .home__title-color {
+    font-size: 2rem;
+  }
+
+  .contact__button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .home__social {
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+  }
+  .home__social-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+
+  .home__image img {
+    width: 260px;
+    height: 320px;
+  }
+  .home__image::before {
+    width: 260px;
+    height: 320px;
+  }
+  .home__hi {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 /* ===== ABOUT ===== */
@@ -558,6 +576,7 @@ img {
     align-items: center;
     gap: 2rem;
     padding: 3rem 1.5rem;
+    margin-top: 50px;
     background: linear-gradient(to bottom, #0f0c29 60%, transparent 40%);
   }
 
@@ -658,6 +677,9 @@ img {
     font-size: 0.9rem;
     padding: 0.5rem 1.2rem;
   }
+  .skills__container{
+    margin-top: 50px;
+  }
 }
 
 /* ===== WORK SECTION ===== */
@@ -745,6 +767,9 @@ img {
     width: 85%;
     height: 500px;
   }
+  .work{
+    margin-top: -100px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -755,6 +780,7 @@ img {
     display: block; /* Removes unwanted inline spacing */
     min-width: 100%; /* Ensures full width */
     min-height: 100%; /* Ensures full height */
+    margin-top: 50px;
   }
 }
 
@@ -920,10 +946,14 @@ img {
 @media screen and (max-width: 768px) {
   .recommendation__title {
     font-size: 2rem;
+    margin-top: -20px;
   }
 
   .recommendation__text {
     font-size: 1rem;
+  }
+  .recommendation__container{
+    margin-top: 50px;
   }
 }
 
